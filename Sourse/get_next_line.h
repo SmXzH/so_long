@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 18:14:55 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/25 23:02:07 by szhakypo         ###   ########.fr       */
+/*   Created: 2022/03/03 18:44:48 by sam               #+#    #+#             */
+/*   Updated: 2022/05/25 22:17:25 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-static	int	initgame(t_game game)
-{
-	game->score = 0;
-	game->currentscore = 0;
-	game->exit = 0;
-	game->hero = 0;
-	return (0);
-}
+# include <stdio.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# include <unistd.h>
+# define BUFFER_SIZE 100
 
-int	main(int ac, char **av)
-{
-	t_game	game;
+void	*ft_mcpy(void *dest, const void *src, int n);
+char	*ft_sjoin(char *s1, char *s2);
+char	*ft_sdup(const char *str);
+int		ft_slen(const char *p);
+char	*line_num(const char *s);
+char	*get_next_line(int fd);
 
-	if (ac != 2)
-		ft_putstr_fd("Wrong number of argument", 2);
-	game.mapdata = av[1];
-	bercheck(&game);
-	ft_zagruzka(&game);
-	initgame(&game);
-}
+#endif

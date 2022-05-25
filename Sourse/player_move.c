@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 18:44:33 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/25 21:26:03 by szhakypo         ###   ########.fr       */
+/*   Created: 2022/05/25 23:11:03 by szhakypo          #+#    #+#             */
+/*   Updated: 2022/05/25 23:11:25 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	bercheck(t_game *game)
-{
-	int	i;
+// Получение текущей позиции игрока
 
-	i = fl_dlinna(game->mapdata) - 4;
-	if (i < 0)
-		return (1);
-	if (game->mapdata[i] == '.' && game->mapdata[i + 1] == 'b'
-		&& game->mapdata[i + 2] == 'e' && game->mapdata[i + 3] == 'r')
-		return (0);
-	else
+char	*get_player(char *s, char c)
+{
+	while (*s)
 	{
-		ft_putstr_fd("FILE ITs NOT BER", 2);
-		return (1);
+		if (*s == c)
+			return ((char *)s);
+		s++;
 	}
-}
-
-int	fl_dlinna(char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	return (NULL);
 }

@@ -1,40 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   loadmap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 18:44:33 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/25 21:26:03 by szhakypo         ###   ########.fr       */
+/*   Created: 2022/05/25 19:36:44 by szhakypo          #+#    #+#             */
+/*   Updated: 2022/05/25 23:22:30 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	bercheck(t_game *game)
+int	ft_zagruzka(t_game *game)
 {
-	int	i;
+	int		fd;
 
-	i = fl_dlinna(game->mapdata) - 4;
-	if (i < 0)
-		return (1);
-	if (game->mapdata[i] == '.' && game->mapdata[i + 1] == 'b'
-		&& game->mapdata[i + 2] == 'e' && game->mapdata[i + 3] == 'r')
-		return (0);
-	else
+	game->mapcontent = malloc(sizeof(char *) + 1);
+	fd = open(game->mapdata, O_RDONLY);
+	while (game->mapcontent)
 	{
-		ft_putstr_fd("FILE ITs NOT BER", 2);
-		return (1);
+		free(game->mapcontent);
+		game->mapcontent = get_next_line(fd);
 	}
+	close(fd);
+	return (0);
 }
 
-int	fl_dlinna(char *s)
+int	read_map(t_game *game)
 {
-	int	i;
+	int	fd;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	fd = open(game->mapcontent, O_RDONLY);
+	read(fd, game->map, 1000);
+	close(fd);
+	return (0);
 }
