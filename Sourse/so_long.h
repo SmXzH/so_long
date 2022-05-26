@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:15:23 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/25 23:26:15 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/05/26 18:34:10 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@
 
 typedef struct s_vars{
 	void	*mlx;
-	void	*win;
-	int		maph;
-	int		mapw;
+	void	*window;
+	int		size_x;
+	int		size_y;
 }				t_vars;
 
 typedef struct t_list
@@ -36,7 +36,8 @@ typedef struct t_list
 	int		positoin;
 	int		score;
 	int		currentscore;
-	char	map;
+	int		hero;
+	char	**map;
 	char	*mapdata;
 	char	*mapcontent;
 	void	*wall;
@@ -47,8 +48,8 @@ typedef struct t_list
 
 int		bercheck(t_game *game);
 int		fl_dlinna(char *c);
-int		ft_zagruzka(t_game *game);
+int		ft_loadmap(t_game *game);
 char	*get_player(char *s, char c);
-int		read_map(t_game *game);
+void	read_map(t_game *game);
 
 #endif
