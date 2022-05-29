@@ -6,11 +6,13 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:36:44 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/26 20:23:53 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/05/29 20:21:58 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+//READ MAP
 
 int	ft_loadmap(t_game *game)
 {
@@ -32,16 +34,10 @@ int	ft_loadmap(t_game *game)
 	while (game->vars.size_x < game->vars.size_y)
 	{
 		game->map[game->vars.size_x] = get_next_line(fd);
-		printf("%s", game->map[game->vars.size_x]);
 		game->vars.size_x++;
 	}
 	game->map[game->vars.size_y] = 0;
 	close(fd);
-	game->vars.size_x = ft_strlen(game->map[0]);
+	game->vars.size_x = ft_strlen(game->map[0]) - 1;
 	return (0);
-}
-
-void	read_map(t_game *game)
-{
-	printf("\t%d - its y    %d - ints size_x\n", game->vars.size_y, game->vars.size_x);
 }

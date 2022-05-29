@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:15:23 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/26 18:34:10 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/05/29 19:49:54 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ typedef struct s_vars{
 typedef struct t_list
 {
 	t_vars	vars;
-	int		dlinna;
-	int		visota;
 	int		positoin;
 	int		score;
 	int		currentscore;
@@ -43,13 +41,16 @@ typedef struct t_list
 	void	*wall;
 	void	*exit;
 	void	*item;
-	void	*player;
 }	t_game;
 
 int		bercheck(t_game *game);
-int		fl_dlinna(char *c);
 int		ft_loadmap(t_game *game);
 char	*get_player(char *s, char c);
-void	read_map(t_game *game);
+int		rectangle(t_game *game);
+int		jungle(t_game *game);
+int		level_validation(t_game *game);
+int		init_game(t_game *game);
+int		check_map_content(t_game *game);
+int		check_invalid_chars(t_game *game, int pos_x, int pos_y);
 
 #endif
