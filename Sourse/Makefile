@@ -1,6 +1,6 @@
 NAME			=	so_long
 
-SRCS			=	checks.c so_long.c loadmap.c get_next_line.c get_next_line_utils.c player_move.c
+SRCS			=	checks.c so_long.c loadmap.c get_next_line.c get_next_line_utils.c player_move.c utilits.c put_img.c
 
 OBJS			=	${SRCS:.c=.o}
 
@@ -22,7 +22,7 @@ CFLAGS			=	-Wall -Werror -Wextra #-fsanitize=address
 $(NAME)			:	${OBJS}
 					make -C libft
 					make -C mlx
-					${CC} ${CFLAGS} ${OBJS} ${LD_FLAGS} ${MLX_FLAGS} -o ${NAME}
+					${CC} ${CFLAGS} ${OBJS} ${LD_FLAGS} -framework OpenGL -framework AppKit ${MLX_FLAGS} -o ${NAME}
 # chmod 744 so_long
 
 all				:	${NAME}

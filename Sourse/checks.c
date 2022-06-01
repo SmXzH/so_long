@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:44:33 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/29 19:04:47 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/05/30 17:07:23 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	rectangle(t_game *game)
 	j = 0;
 	while (game->map[i])
 	{
-		i++;
 		if (game->vars.size_x != (int)(ft_strlen(game->map[i]) - 1))
 			break ;
+		i++;
 	}
 	if (++i == game->vars.size_y)
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 18:43:03 by sam               #+#    #+#             */
-/*   Updated: 2022/05/23 19:49:39 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/05/30 19:36:32 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ char	*get_next_line(int fd)
 		return (0);
 	str = reader(fd, str);
 	if (!str)
-		return (0);
+		return (NULL);
 	buff = new_line(str);
 	str = cutting(str);
 	return (buff);

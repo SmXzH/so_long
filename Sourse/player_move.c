@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 23:11:03 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/29 20:15:21 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/05/31 18:40:43 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int	check_map_content(t_game *game)
 		{
 			check_invalid_chars(game, i, j);
 			if (game->map[j][i] == 'P')
-				game->hero++;
+				game->hero.hero++;
 			if (game->map[j][i] == 'E')
 				game->exit++;
 			if (game->map[j][i] == 'C')
-				game->item++;
+				game->item.item++;
 			i++;
 		}
 		j++;
@@ -66,13 +66,13 @@ int	check_map_content(t_game *game)
 int	level_validation(t_game *game)
 {
 	check_map_content(game);
-	if (game->hero == 0)
+	if (game->hero.hero == 0)
 		return (ft_putstr_fd("Dint find player", 2),
 			free(game->map), exit(0), 0);
-	if (game->hero > 1)
+	if (game->hero.hero > 1)
 		return (ft_putstr_fd("Player more than 1", 2),
 			free(game->map), exit(0), 0);
-	if (game->item == 0)
+	if (game->item.item == 0)
 		return (ft_putstr_fd("Dint find item(C)", 2),
 			free(game->map), exit(0), 0);
 	if (game->exit == 0)
