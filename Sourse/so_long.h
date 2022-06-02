@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:15:23 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/01 19:50:45 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:13:12 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ int		check_invalid_chars(t_game *game, int pos_x, int pos_y);
 void	not_folder(void);
 int		load_files(t_game *game);
 int		load_oblects(t_game *game);
+int		drow_map(t_game *map);
+void	drow_map2(t_game *game, int i, int j);
 
 #endif

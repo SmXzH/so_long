@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:44:33 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/30 17:07:23 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/02 14:28:03 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ int	bercheck(t_game *game)
 int	rectangle(t_game *game)
 {
 	int	i;
-	int	j;
+	// int	j;
 
 	i = 0;
-	j = 0;
+	// j = 0;
 	while (game->map[i])
 	{
 		if (game->vars.size_x != (int)(ft_strlen(game->map[i]) - 1))

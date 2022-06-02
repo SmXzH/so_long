@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:14:55 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/01 19:52:04 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:11:59 by sam              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int	main(int ac, char **av)
 	game.size.wght = game.vars.size_x * game.wall.widht;
 	game.vars.window = mlx_new_window(game.vars.mlx, game.size.wght,
 			game.size.hght, "SO_LONG");
+	drow_map(&game);
 	mlx_loop(game.vars.mlx);
 }
