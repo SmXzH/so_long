@@ -1,6 +1,6 @@
 NAME			=	so_long
 
-SRCS			=	checks.c so_long.c loadmap.c get_next_line.c get_next_line_utils.c player_move.c utilits.c put_img.c
+SRCS			=	checks.c so_long.c loadmap.c get_next_line.c get_next_line_utils.c player_move.c utilits.c movement.c
 
 OBJS			=	${SRCS:.c=.o}
 

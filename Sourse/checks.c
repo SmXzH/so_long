@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:44:33 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/02 14:28:03 by sam              ###   ########.fr       */
+/*   Updated: 2022/06/03 17:01:19 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int	bercheck(t_game *game)
 int	rectangle(t_game *game)
 {
 	int	i;
-	// int	j;
 
 	i = 0;
-	// j = 0;
 	while (game->map[i])
 	{
 		if (game->vars.size_x != (int)(ft_strlen(game->map[i]) - 1))
@@ -51,7 +49,7 @@ static int	wallcheck(int point, t_game *game)
 {
 	if (point != '1')
 	{
-		ft_putstr_fd("Map is not correct!\n", 2);
+		ft_putstr_fd("Error : Map is not correct!\n", 2);
 		free(game->map);
 		return (1);
 	}

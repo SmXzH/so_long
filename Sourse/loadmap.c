@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   loadmap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sam <sam@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 19:36:44 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/02 16:45:27 by sam              ###   ########.fr       */
+/*   Updated: 2022/06/03 17:11:14 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,8 @@ void	drow_map2(t_game *game, int i, int j)
 		game->bunker.img, (j * 50), (i * 50));
 	else if (game->map[i][j] == 'C')
 		mlx_put_image_to_window(game->vars.mlx, game->vars.window, \
-		game->item.img, (j * 50 + 24) , (i * 50 + 24));
-
+		game->item.img, (j * 50), (i * 50));
 }
-// int	check_win_condition(t_game *game)
-// {
-// 	if (game->currentscore == 0)
-// 	{
-// 		printf("You can now leave the map!\n");
-// 		game->currentscore = -1;
-// 	}
-// 	return (0);
-// }
 
 int	drow_map(t_game *game)
 {
