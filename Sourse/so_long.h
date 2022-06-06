@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:15:23 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/03 21:09:52 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/06 18:22:21 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "mlx/mlx.h"
 # include "libft/libft.h"
 # include "get_next_line.h"
+# include "ft_printf/ft_printf.h"
 
 # define W		13
 # define S		1
@@ -88,6 +89,7 @@ typedef struct t_list
 	t_sprite	ground;
 	t_msize		size;
 	int			exit;
+	int			steps;
 	int			position_x;
 	int			position_y;
 	int			score;
@@ -111,12 +113,15 @@ int		load_files(t_game *game);
 int		load_oblects(t_game *game);
 int		drow_map(t_game *map);
 void	drow_map2(t_game *game, int i, int j);
-int		position_player(t_game *game);
 int		move_up(t_game *game);
 int		move_down(t_game *game);
 int		move_left(t_game *game);
 int		move_right(t_game *game);
 int		endgame(t_game *game);
 int		unload_objects(t_game *game);
+void	move_up_utill_0(t_game *game);
+void	move_down_utill_0(t_game *game);
+void	move_left_utill_0(t_game *game);
+void	move_right_utill_0(t_game *game);
 
 #endif

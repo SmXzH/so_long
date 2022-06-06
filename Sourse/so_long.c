@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 18:14:55 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/06/03 20:42:15 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/06 17:26:54 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,11 @@ int	key_hooks(int keycode, t_game *game)
 		move_right(game);
 	if (keycode == D || keycode == A || keycode == W || keycode == S || \
 	keycode == UP || keycode == DOWN || keycode == LEFT || keycode == RIGHT)
+	{
 		drow_map(game);
+		game->steps++;
+		printf("STEPS =  '%d'\n", game->steps);
+	}
 	return (0);
 }
 
@@ -36,6 +40,7 @@ int	init_game(t_game *game)
 	game->item.item = 0;
 	game->exit = 0;
 	game->score = 0;
+	game->steps = 0;
 	return (0);
 }
 
@@ -62,5 +67,6 @@ int	main(int ac, char **av)
 			game.size.hght, "SO_LONG");
 	drow_map(&game);
 	mlx_key_hook(game.vars.window, key_hooks, &game);
+	mlx_hook(game.vars.window, 17, 0, endgame, &game);
 	mlx_loop(game.vars.mlx);
 }

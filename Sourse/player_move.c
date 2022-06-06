@@ -6,7 +6,7 @@
 /*   By: szhakypo <szhakypo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 23:11:03 by szhakypo          #+#    #+#             */
-/*   Updated: 2022/05/31 18:40:43 by szhakypo         ###   ########.fr       */
+/*   Updated: 2022/06/06 14:17:21 by szhakypo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	check_map_content(t_game *game)
 	int	i;
 	int	j;
 
-	i = 0;
 	j = 0;
 	while (game->map[j])
 	{
@@ -51,7 +50,11 @@ int	check_map_content(t_game *game)
 		{
 			check_invalid_chars(game, i, j);
 			if (game->map[j][i] == 'P')
+			{
+				game->position_x = i;
+				game->position_y = j;
 				game->hero.hero++;
+			}
 			if (game->map[j][i] == 'E')
 				game->exit++;
 			if (game->map[j][i] == 'C')
@@ -67,16 +70,16 @@ int	level_validation(t_game *game)
 {
 	check_map_content(game);
 	if (game->hero.hero == 0)
-		return (ft_putstr_fd("Dint find player", 2),
+		return (ft_putstr_fd("Error : Didn't find player", 2),
 			free(game->map), exit(0), 0);
 	if (game->hero.hero > 1)
-		return (ft_putstr_fd("Player more than 1", 2),
+		return (ft_putstr_fd("Error : Player more than 1", 2),
 			free(game->map), exit(0), 0);
 	if (game->item.item == 0)
-		return (ft_putstr_fd("Dint find item(C)", 2),
+		return (ft_putstr_fd("Error : Didn't find item(C)", 2),
 			free(game->map), exit(0), 0);
 	if (game->exit == 0)
-		return (ft_putstr_fd("Dint find exit(E)", 2),
+		return (ft_putstr_fd("Error : Didn't find exit(E)", 2),
 			free(game->map), exit(0), 0);
 	return (0);
 }
